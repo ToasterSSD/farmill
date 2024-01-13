@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-from Forms import CreateUserForm, CreateCustomerForm
-import shelve, User, Customer
+from grocery.Forms import CreateUserForm, CreateCustomerForm
+import shelve, grocery.User as User, grocery.Customer as Customer
 
 app = Flask(__name__)
 
