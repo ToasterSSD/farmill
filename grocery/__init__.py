@@ -11,6 +11,8 @@ def home():
     return render_template("add.html")
 
 @app.route('/signup', methods= ["POST"] )
+def index():
+    return render_template('signup.html')
 
 @app.route('/login')
 def login2():
