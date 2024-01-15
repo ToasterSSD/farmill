@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import *
 from grocery.Forms import CreateUserForm, CreateCustomerForm
 import shelve, grocery.User as User, grocery.Customer as Customer
 
@@ -17,7 +17,7 @@ def index():
 def login2():
     return render_template('login.html')
 
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login2', methods=['GET','POST'])
 def login2():
     email = request.form['email']
     password = request.form['password']

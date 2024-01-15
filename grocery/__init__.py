@@ -5,9 +5,32 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 ALLOWED_EXTENSIONS = set(['jpeg', 'jpg', 'png'])
 
+
 @app.route('/')
 def home():
     return render_template("add.html")
+
+@app.route('/signup', methods= ["POST"] )
+
+@app.route('/login')
+def login2():
+    return render_template('login.html')
+
+@app.route('/login', methods=['GET','POST'])
+def login2():
+    # email = request.form['email']
+    # password = request.form['password']
+    # print(f"{email}, {password}")
+    # db = shelve.open('user.db', 'r')
+    # users = db["Users"]
+    # if email in users:
+    #     print("found")
+    # else:
+    #     print("not found")
+   
+    # db.close()
+    
+    return render_template('login.html')
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -59,6 +82,9 @@ def parse(data):
         ans.append(curr)
     return ans
         
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error404page.html'), 404
 
 if __name__ == '__main__':
     app.run(debug=True)
